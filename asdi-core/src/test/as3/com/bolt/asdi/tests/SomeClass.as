@@ -1,6 +1,6 @@
-package com.bolt.di.tests {
+package com.bolt.asdi.tests {
 
-    import com.bolt.di.tests.*;
+    import com.bolt.asdi.tests.*;
 
     import flash.system.System;
 

@@ -1,9 +1,4 @@
-package com.bolt.di.tests {
-
-    /**
-     *
-     * @author Matt Bolt
-     */
+package com.bolt.asdi.tests {
     public interface SomeInterface {
         function someMethod(a:AnotherClass, b:int):String;
     }
