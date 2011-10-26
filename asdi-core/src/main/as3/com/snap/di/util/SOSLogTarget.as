@@ -17,7 +17,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package com.bolt.asdi.util {
+package com.snap.di.util {
 
     import flash.events.Event;
     import flash.events.IOErrorEvent;

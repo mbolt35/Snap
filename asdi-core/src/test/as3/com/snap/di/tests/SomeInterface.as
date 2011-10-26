@@ -17,11 +17,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package com.bolt.asdi.module {
-
-    public interface IModule {
-
-        function configure():void;
+package com.snap.di.tests {
+    public interface SomeInterface {
+        function someMethod(a:AnotherClass, b:int):String;
     }
-
 }

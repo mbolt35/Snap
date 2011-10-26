@@ -17,8 +17,36 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package com.bolt.asdi.tests {
-    public interface SomeInterface {
-        function someMethod(a:AnotherClass, b:int):String;
+package com.snap.di.bind {
+
+    import flash.utils.Dictionary;
+
+
+    /**
+     *
+     * @author Matt Bolt, mbolt35&#64;gmail.com
+     */
+    public class DefaultBindingManager implements IBindingManager {
+
+        /**
+         * @private
+         * the backing dictionary for the class mapping
+         */
+        private var _mappings:Dictionary = new Dictionary();
+
+        /**
+         * Creates a new <code>DefaultBindingManager</code> instance.
+         */
+        public function DefaultBindingManager() {
+
+        }
+
+        public function add(base:Class, bindedTo:Class):void {
+            if (_mappings[base]) {
+                throw new Error("Class: " + base + " has already been mapped to: " + _mappings[base]);
+            }
+
+            _mappings[base] = bindedTo;
+        }
     }
 }

@@ -17,9 +17,9 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package com.bolt.asdi.tests {
+package com.snap.di.tests {
 
-    import com.bolt.asdi.tests.*;
+    import com.snap.di.tests.*;
 
     import flash.system.System;
 

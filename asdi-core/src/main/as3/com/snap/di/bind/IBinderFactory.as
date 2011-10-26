@@ -17,19 +17,15 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package com.bolt.asdi.annotations {
+package com.snap.di.bind {
 
     /**
-     * This interface represents an annotation that can be used with ASDI.
-     * 
+     *
      * @author Matt Bolt
      */
-    public interface IAnnotation {
+    public interface IBinderFactory {
 
-        function init(metaData:XML):void;
+        function bindingFor(base:Class):IBinder;
 
-        function valueFor(key:String):String;
-
-        function get name():String;
     }
 }

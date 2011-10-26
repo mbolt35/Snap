@@ -16,8 +16,22 @@
 //  limitations under the License.
 //
 ////////////////////////////////////////////////////////////////////////////////
+package com.snap.di.bind {
 
-package com.bolt.asdi.bind {
-    public interface IBinder {
+    /**
+     *
+     * @author Matt Bolt
+     */
+    public class DefaultBindingFactory implements IBinderFactory {
+
+        private var _manager:IBindingManager;
+
+        public function DefaultBindingFactory(manager:IBindingManager) {
+            _manager = manager;
+        }
+
+        public function bindingFor(base:Class):IBinder {
+            return new DefaultBinder(base, _manager);
+        }
     }
 }

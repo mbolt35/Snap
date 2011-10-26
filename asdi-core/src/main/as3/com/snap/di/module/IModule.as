@@ -17,7 +17,11 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package com.bolt.asdi.inject {
-    public interface IInjector {
+package com.snap.di.module {
+
+    public interface IModule {
+
+        function configure():void;
     }
+
 }

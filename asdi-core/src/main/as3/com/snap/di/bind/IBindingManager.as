@@ -17,9 +17,14 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package com.bolt.asdi.tests {
-    public class AnotherClass {
-        public function AnotherClass() {
-        }
+package com.snap.di.bind {
+
+    /**
+     *
+     * @author Matt Bolt, mbolt35&#64;gmail.com
+     */
+    public interface IBindingManager {
+        
+        function add(base:Class, bindedTo:Class):void;
     }
 }
