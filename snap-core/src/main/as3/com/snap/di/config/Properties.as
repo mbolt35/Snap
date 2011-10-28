@@ -26,6 +26,8 @@ package com.snap.di.config{
      * This class represents a list of properties and the values associated with those properties. More commonly, this
      * class is used to represent the contents of a <code>.properties</code> file:
      *
+     * <p>Thanks to the AS3 Spring team for a better portion of this code.</p>
+     *
      * @example
      * This example shows what a .properties file looks like.
      *

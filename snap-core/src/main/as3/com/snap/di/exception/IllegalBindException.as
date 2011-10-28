@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  MATTBOLT.BLOGSPOT.COM
-//  Copyright(C) 2010 Matt Bolt
+//  Copyright(C) 2011 Matt Bolt
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -25,6 +25,16 @@ package com.snap.di.exception {
      */
     public class IllegalBindException extends Error {
 
+        //--------------------------------------------------------------------------
+        //
+        //  Constructor
+        //
+        //--------------------------------------------------------------------------
+
+        /**
+         * 
+         * @param message
+         */
         public function IllegalBindException(message:String) {
             super(message);
         }
