@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  MATTBOLT.BLOGSPOT.COM
-//  Copyright(C) 2010 Matt Bolt
+//  Copyright(C) 2011 Matt Bolt
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -19,7 +19,18 @@
 
 package com.snap.di.bind {
 
+    /**
+     * This interface prototypes an object which binds an implementation class to a base class.
+     * 
+     * @author Matt Bolt, mbolt35&#64;gmail.com
+     */
     public interface IBinder {
+
+        //--------------------------------------------------------------------------
+        //
+        //  Methods
+        //
+        //--------------------------------------------------------------------------
 
         /**
          * This method binds the source class/interface to a specific class implementation.

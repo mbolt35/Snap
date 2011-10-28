@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  MATTBOLT.BLOGSPOT.COM
-//  Copyright(C) 2010 Matt Bolt
+//  Copyright(C) 2011 Matt Bolt
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -20,11 +20,26 @@
 package com.snap.di.bind {
 
     /**
-     *
+     * This interface defines a prototype for a manager object which handles all binding relationships.
+     * 
      * @author Matt Bolt, mbolt35&#64;gmail.com
      */
     public interface IBindingManager {
-        
+
+        //--------------------------------------------------------------------------
+        //
+        //  Methods
+        //
+        //--------------------------------------------------------------------------
+
+        /**
+         * The binding manager performs the actual binding between a base class and it's implementing class.
+         *
+         * @param base The base <code>Class</code> to bind the implementation to.
+         *
+         * @param bindedTo The implementation <code>Class</code> to bind to the base.
+         */
         function add(base:Class, bindedTo:Class):void;
+        
     }
 }

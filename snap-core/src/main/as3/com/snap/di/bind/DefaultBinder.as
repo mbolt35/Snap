@@ -19,16 +19,18 @@
 
 package com.snap.di.bind {
 
-    import flash.utils.Dictionary;
+    import com.snap.di.util.LogUtil;
+
+    import mx.logging.ILogger;
+    import mx.logging.Log;
 
 
     /**
-     * This class represents the default implementation of the binding manager. The binding manager simply tracks and
-     * manages all relationships defined by the developer.
+     * This class is used as the default <code>IBinder</code> implementation.
      *
      * @author Matt Bolt, mbolt35&#64;gmail.com
      */
-    public class DefaultBindingManager implements IBindingManager {
+    public class DefaultBinder implements IBinder {
 
         //--------------------------------------------------------------------------
         //
@@ -38,9 +40,21 @@ package com.snap.di.bind {
 
         /**
          * @private
-         * the backing dictionary for the class mapping
+         * mx logger
          */
-        private var _mappings:Dictionary = new Dictionary();
+        private static const log:ILogger = Log.getLogger(LogUtil.categoryFor(prototype));
+
+        /**
+         * @private
+         * binding manager for mapping the implementations
+         */
+        private var _manager:IBindingManager;
+
+        /**
+         * @private
+         * the base class that's mapped *to*
+         */
+        private var _base:Class;
 
 
         //--------------------------------------------------------------------------
@@ -50,10 +64,11 @@ package com.snap.di.bind {
         //--------------------------------------------------------------------------
 
         /**
-         * Creates a new <code>DefaultBindingManager</code> instance.
+         * Creates a new <code>DefaultBinder</code> instance.
          */
-        public function DefaultBindingManager() {
-
+        public function DefaultBinder(base:Class, manager:IBindingManager) {
+            _base = base;
+            _manager = manager;
         }
 
 
@@ -66,13 +81,8 @@ package com.snap.di.bind {
         /**
          * @inheritDoc
          */
-        public function add(base:Class, bindedTo:Class):void {
-            // TODO: Allow multiple bindings as long as they are annotated -- continue to use map, but add buckets.
-            if (_mappings[base]) {
-                throw new Error("Class: " + base + " has already been mapped to: " + _mappings[base]);
-            }
-
-            _mappings[base] = bindedTo;
+        public function to(implementation:Class):void {
+            _manager.add(_base, implementation);
         }
     }
 }

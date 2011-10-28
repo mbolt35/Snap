@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  MATTBOLT.BLOGSPOT.COM
-//  Copyright(C) 2010 Matt Bolt
+//  Copyright(C) 2011 Matt Bolt
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -16,22 +16,57 @@
 //  limitations under the License.
 //
 ////////////////////////////////////////////////////////////////////////////////
+
 package com.snap.di.bind {
 
+
     /**
+     * This class represents the default implementation of the binding factory. It creates new binding instances for
+     * mapping implementation classes back to their base class.
      *
-     * @author Matt Bolt
+     * @author Matt Bolt, mbolt35&#64;gmail.com
      */
     public class DefaultBindingFactory implements IBinderFactory {
 
+        //--------------------------------------------------------------------------
+        //
+        //  Variables
+        //
+        //--------------------------------------------------------------------------
+
+        /**
+         * @private
+         * the binding manager implementation
+         */
         private var _manager:IBindingManager;
 
+
+        //--------------------------------------------------------------------------
+        //
+        //  Constructor
+        //
+        //--------------------------------------------------------------------------
+
+        /**
+         * Creates a new <code>DefaultBindingFactory</code> instance.
+         */
         public function DefaultBindingFactory(manager:IBindingManager) {
             _manager = manager;
         }
 
+
+        //--------------------------------------------------------------------------
+        //
+        //  Methods
+        //
+        //--------------------------------------------------------------------------
+
+        /**
+         * @iheritDoc
+         */
         public function bindingFor(base:Class):IBinder {
             return new DefaultBinder(base, _manager);
         }
+        
     }
 }

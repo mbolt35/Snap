@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  MATTBOLT.BLOGSPOT.COM
-//  Copyright(C) 2010 Matt Bolt
+//  Copyright(C) 2011 Matt Bolt
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -19,12 +19,27 @@
 
 package com.snap.di.bind {
 
+    
     /**
+     * This interface defines a prototype for an object that generates binding classes for a base <code>Class</code>.
      *
-     * @author Matt Bolt
+     * @author Matt Bolt, mbolt35&#64;gmail.com
      */
     public interface IBinderFactory {
 
+        //--------------------------------------------------------------------------
+        //
+        //  Methods
+        //
+        //--------------------------------------------------------------------------
+
+        /**
+         * This class creates and returns an <code>IBinder</code> implementation for a base <code>Class</code>.
+         *
+         * @param base The base <code>Class</code> used as the target for the binding.
+         *
+         * @return A new instance of an <code>IBinder</code> implementation.
+         */
         function bindingFor(base:Class):IBinder;
 
     }
