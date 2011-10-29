@@ -54,5 +54,21 @@ package com.snap.di.tests {
         public function get someProperty():AnotherClass {
             return _ac;
         }
+
+        private var _test:int;
+
+        public function get test():int {
+            return _test;
+        }
+
+        public function set test(value:int):void {
+            _test = value;
+        }
+
+        private var _hallo:String;
+
+        public function set hallo(value:String):void {
+            _hallo = value;
+        }
     }
 }
