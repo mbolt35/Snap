@@ -19,6 +19,12 @@
 
 package com.snap.di.inject {
 
+    /**
+     * This interface defines prototype for an injector object, which creates "injectable" instances with necessary
+     * values.
+     *
+     * @author Matt Bolt, mbolt35&#64;gmail.com
+     */
     public interface IInjector {
 
     }

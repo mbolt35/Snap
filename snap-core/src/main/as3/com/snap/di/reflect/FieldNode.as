@@ -19,41 +19,13 @@
 
 package com.snap.di.reflect {
 
-
+    
     /**
-     * This class contains an enumeration of field access constants.
+     * This class defines a field (public variable or getter/setter) for a specific class.
      *
-     * @author Matt Bolt
+     * @author Matt Bolt, mbolt35&#64;gmail.com
      */
-    public final class FieldAccess {
-
-        //--------------------------------------------------------------------------
-        //
-        //  Constants
-        //
-        //--------------------------------------------------------------------------
-
-        /**
-         * @private
-         * this key is used to ensure that new instances are only created within this class.
-         */
-        private static const KEY:Object = { key: "com.snap.di.reflect.FieldAccess" };
-
-        /**
-         * This constant is set on a field when there exists a getter method, but not a setter.
-         */
-        public static const READ_ONLY:FieldAccess = new FieldAccess("readonly", KEY);
-
-        /**
-         * This constant is set on a field when there exists a setter method, but not a getter.
-         */
-        public static const WRITE_ONLY:FieldAccess = new FieldAccess("writeonly", KEY);
-
-        /**
-         * This constant is set on a field when there exists a getter and a setter method.
-         */
-        public static const READ_WRITE:FieldAccess = new FieldAccess("readwrite", KEY);
-
+    public final class FieldNode {
 
         //--------------------------------------------------------------------------
         //
@@ -63,9 +35,21 @@ package com.snap.di.reflect {
 
         /**
          * @private
-         * the type of field access
+         * the level of access for the field
+         */
+        private var _access:FieldAccess;
+
+        /**
+         * @private
+         * the type of field
          */
         private var _type:String;
+
+        /**
+         * @private
+         * the class that contains the field
+         */
+        private var _declaredBy:String;
 
 
         //--------------------------------------------------------------------------
@@ -75,15 +59,12 @@ package com.snap.di.reflect {
         //--------------------------------------------------------------------------
 
         /**
-         * @private
+         * Creates a new <code>FieldNode</code> instance.
          */
-        public function FieldAccess(type:String, key:Object) {
-            // Use a strong reference comparator
-            if (key !== KEY) {
-                throw new Error("Static access only.");
-            }
-
+        public function FieldNode(access:FieldAccess, type:String, declaredBy:String) {
+            _access = access;
             _type = type;
+            _declaredBy = declaredBy;
         }
 
 
@@ -97,7 +78,7 @@ package com.snap.di.reflect {
          * @inheritDoc
          */
         public function toString():String {
-            return "[FieldAccess - " + _type + "]";
+            return "[FieldNode - access: " + _access.type + ", type: " + _type + ", declaredBy: " + _declaredBy + "]";
         }
 
 
@@ -108,11 +89,25 @@ package com.snap.di.reflect {
         //--------------------------------------------------------------------------
 
         /**
-         * This property contains the field access type
+         * This property contains the <code>FieldAccess</code> that represents whether or not a user can read and/or
+         * write to the field.
+         */
+        public function get access():FieldAccess {
+            return _access;
+        }
+
+        /**
+         * This property contains the fully qualified type name for the field.
          */
         public function get type():String {
             return _type;
         }
 
+        /**
+         * This property contains the fully qualified name of the object containing the field.
+         */
+        public function get declaredBy():String {
+            return _declaredBy;
+        }
     }
 }
