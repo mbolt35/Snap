@@ -65,8 +65,16 @@ package com.snap.di.reflect {
          * This method
          * @return
          */
-        public static function fieldAccessFor():FieldAccess {
+        public static function fieldAccessFor(accessType:String):FieldAccess {
+            if (READ_ONLY.type == accessType) {
+                return READ_ONLY;
+            }
 
+            if (WRITE_ONLY.type == accessType) {
+                return WRITE_ONLY;
+            }
+
+            return READ_WRITE;
         }
 
 

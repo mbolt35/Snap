@@ -37,6 +37,12 @@ package com.snap.di.reflect {
 
         /**
          * @private
+         * the name of the field.
+         */
+        private var _name:String;
+
+        /**
+         * @private
          * the level of access for the field
          */
         private var _access:FieldAccess;
@@ -69,11 +75,13 @@ package com.snap.di.reflect {
         /**
          * Creates a new <code>FieldNode</code> instance.
          */
-        public function FieldNode( access:FieldAccess,
+        public function FieldNode( name:String,
+                                   access:FieldAccess,
                                    type:String,
                                    declaredBy:String,
                                    annotations:Vector.<IAnnotation> )
         {
+            _name = name;
             _access = access;
             _type = type;
             _declaredBy = declaredBy;
@@ -91,7 +99,10 @@ package com.snap.di.reflect {
          * @inheritDoc
          */
         public function toString():String {
-            return "[FieldNode - access: " + _access.type + ", type: " + _type + ", declaredBy: " + _declaredBy + "]";
+            return "[FieldNode - name: " + _name +
+                   ", access: " + _access.type +
+                   ", type: " + _type +
+                   ", declaredBy: " + _declaredBy + "]";
         }
 
 
@@ -100,6 +111,10 @@ package com.snap.di.reflect {
         //  Properties
         //
         //--------------------------------------------------------------------------
+
+        public function get name():String {
+            return _name;
+        }
 
         /**
          * This property contains the <code>FieldAccess</code> that represents whether or not a user can read and/or
