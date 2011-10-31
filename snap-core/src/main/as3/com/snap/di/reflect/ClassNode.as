@@ -19,6 +19,7 @@
 
 package com.snap.di.reflect {
 
+    
     /**
      * This class represents a "Class" object data. It's used to determine dependencies and injection points.
      *

@@ -112,6 +112,9 @@ package com.snap.di.reflect {
         //
         //--------------------------------------------------------------------------
 
+        /**
+         * This property contains the name of the field.
+         */
         public function get name():String {
             return _name;
         }
