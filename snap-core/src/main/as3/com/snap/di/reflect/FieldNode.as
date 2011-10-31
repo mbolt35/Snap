@@ -19,7 +19,9 @@
 
 package com.snap.di.reflect {
 
-    
+    import com.snap.di.annotations.IAnnotation;
+
+
     /**
      * This class defines a field (public variable or getter/setter) for a specific class.
      *
@@ -51,6 +53,12 @@ package com.snap.di.reflect {
          */
         private var _declaredBy:String;
 
+        /**
+         * @private
+         * the annotations associated
+         */
+        private var _annotations:Vector.<IAnnotation>;
+
 
         //--------------------------------------------------------------------------
         //
@@ -61,10 +69,15 @@ package com.snap.di.reflect {
         /**
          * Creates a new <code>FieldNode</code> instance.
          */
-        public function FieldNode(access:FieldAccess, type:String, declaredBy:String) {
+        public function FieldNode( access:FieldAccess,
+                                   type:String,
+                                   declaredBy:String,
+                                   annotations:Vector.<IAnnotation> )
+        {
             _access = access;
             _type = type;
             _declaredBy = declaredBy;
+            _annotations = annotations;
         }
 
 
@@ -108,6 +121,14 @@ package com.snap.di.reflect {
          */
         public function get declaredBy():String {
             return _declaredBy;
+        }
+
+        /**
+         * This property returns a copy of the all the <code>IAnnotation</code> implementations associated with this
+         * field.
+         */
+        public function get annotations():Vector.<IAnnotation> {
+            return _annotations.concat();
         }
     }
 }
